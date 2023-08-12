@@ -8,7 +8,7 @@ This page contains information about the project, history, fundraising goal, tra
 
 ## How to contribute
 
-1. Open the project using the link.
+1. Open the project using the link https://0darkdante.github.io/donation-to-the-Armed-Forces/.
 2. There is a card number on the page, send money to it.
 3. Enter the amount you donated in the contribution field to update the information about the funds collected. It's anonymous..
 3. Click the "Support" button.
