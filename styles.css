@@ -160,3 +160,16 @@ body {
 .donation-button:hover {
   background-color: #2980b9;
 }
+
+.thank-you-alert {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

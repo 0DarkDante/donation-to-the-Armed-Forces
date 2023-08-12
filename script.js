@@ -4,9 +4,12 @@ document.addEventListener("DOMContentLoaded", function() {
   const donationAmountInput = document.getElementById("donation-amount");
   const donationFormSection = document.querySelector(".donation-form");
 
-  // Get the previously saved amount from localStorage
-  const savedAmount = parseFloat(localStorage.getItem("amountRaised")) || 0;
-  amountRaisedElement.textContent = savedAmount.toLocaleString("uk-UA") + " грн";
+  // Оновлена частина: Встановлюємо початкове значення "Зібрано коштів" в локальному сховищі
+  const initialAmountRaised = 5580;
+  localStorage.setItem("amountRaised", initialAmountRaised);
+
+  // Встановлюємо початкове значення "Зібрано коштів" на сторінці
+  amountRaisedElement.textContent = initialAmountRaised.toLocaleString("uk-UA") + " грн";
 
   donationButton.addEventListener("click", function() {
       const donatedAmount = parseFloat(donationAmountInput.value);
@@ -23,20 +26,21 @@ document.addEventListener("DOMContentLoaded", function() {
           if (newAmountRaised >= 8999) {
               donationFormSection.innerHTML = "<p>Збір завершено</p>";
           }
+
+          // Додаємо алерт з подякою за донат
+          showThankYouAlert();
       }
   });
+
+  // Функція для показу алерту з подякою
+  function showThankYouAlert() {
+      const thankYouMessage = "Дякуємо за ваш донат! Ваша підтримка дуже важлива для нас!";
+      const alertElement = document.createElement("div");
+      alertElement.classList.add("thank-you-alert");
+      alertElement.textContent = thankYouMessage;
+      document.body.appendChild(alertElement);
+      setTimeout(function() {
+          document.body.removeChild(alertElement);
+      }, 3000);
+  }
 });
-
-function showThankYou() {
-  console.log("showThankYou function called");
-  var alertStyle = "background-color: #f7f7f7; border: 1px solid #ddd; padding: 15px; text-align: center; font-size: 18px; font-weight: bold;";
-  var thankYouMessage = "Дякуємо за ваш донат! Ваша підтримка дуже важлива для нас!";
-  var alertElement = document.createElement("div");
-  alertElement.style = alertStyle;
-  alertElement.innerHTML = thankYouMessage;
-  document.body.appendChild(alertElement);
-  setTimeout(function() {
-      document.body.removeChild(alertElement);
-  }, 3000);
-}
-
